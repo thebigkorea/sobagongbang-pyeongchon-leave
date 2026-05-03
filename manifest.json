@@ -1,6 +1,6 @@
 {
-  "name": "더큰코리아 연월차 신청",
-  "short_name": "더큰코리아",
+  "name": "평촌 소바공방 연월차 신청",
+  "short_name": "소바공방",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#fbf6ef",

@@ -17,6 +17,14 @@ async function api(action, data = {}) {
   return json.data;
 }
 
+function goAdmin() {
+  window.location.href = "./admin.html?v=6";
+}
+
+function goHome() {
+  window.location.href = "./index.html?v=6";
+}
+
 function showTab(id, btn) {
   document.querySelectorAll(".card").forEach(el => el.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
@@ -224,5 +232,5 @@ async function changeStatus(rowNumber, status) {
 }
 
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
+  navigator.serviceWorker.register("service-worker.js?v=6");
 }

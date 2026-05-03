@@ -1,25 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./style.css">
-<title>관리자 승인</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>평촌 소바공방 연월차 관리자</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#7b1e1e" />
 </head>
 
 <body>
+<main class="app">
 
-<div class="app">
+  <section class="hero admin">
+    <div class="brand">소바공방 평촌점</div>
+    <h1>관리자 승인</h1>
+    <p>연월차 신청 승인 / 반려</p>
+  </section>
 
-<h2>연차 승인 관리</h2>
+  <section class="card">
+    <label>관리자 비밀번호</label>
+    <input id="adminPw" type="password" placeholder="비밀번호 입력" />
 
-<button onclick="loadPending()">미승인 목록 불러오기</button>
+    <button id="adminBtn" class="primary" onclick="loadAdminList()">신청 목록 불러오기</button>
 
-<div id="pendingList"></div>
+    <div id="adminResult" class="result"></div>
+  </section>
 
-</div>
+  <section class="footer-link">
+    <button class="admin-go-btn" onclick="goHome()">직원 신청 페이지로 이동</button>
+  </section>
 
-<script src="./script.js"></script>
+</main>
 
+<script src="script.js?v=6"></script>
 </body>
 </html>

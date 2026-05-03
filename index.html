@@ -1,113 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>평촌 소바공방 연월차 신청</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
-  <meta name="theme-color" content="#7b1e1e" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="manifest" href="./manifest.json" />
+<link rel="stylesheet" href="./style.css" />
+
+<title>평촌 소바공방 연월차 신청</title>
 </head>
 
 <body>
-<main class="app">
 
-  <section class="hero">
-    <div class="brand">소바공방 평촌점</div>
-    <h1>연월차 신청</h1>
-    <p>소바공방 평촌점 직원용</p>
-  </section>
+<div class="app">
 
-  <section class="tabs">
-    <button class="tab active" onclick="showTab('apply', this)">신청</button>
-    <button class="tab" onclick="showTab('register', this)">직원등록</button>
-    <button class="tab" onclick="showTab('history', this)">내역조회</button>
-    <button class="tab" onclick="showTab('balance', this)">잔여확인</button>
-  </section>
+<div class="header-card">
+<h1>연월차 신청</h1>
+<p>평촌 소바공방 직원용</p>
+</div>
 
-  <section id="apply" class="card">
-    <label>매장</label>
-    <div class="fixed-store">소바공방 평촌점</div>
+<div class="menu">
 
-    <label>이름</label>
-    <input id="applyName" placeholder="예: 홍길동" />
+<button onclick="showSection('apply')">신청</button>
+<button onclick="showSection('register')">직원등록</button>
+<button onclick="showSection('history')">내역조회</button>
+<button onclick="showSection('balance')">잔여확인</button>
 
-    <label>연락처</label>
-    <input id="applyPhone" placeholder="010-0000-0000" />
+</div>
 
-    <label>휴가 종류</label>
-    <select id="leaveType" onchange="autoUsedDays()">
-      <option value="">선택하세요</option>
-      <option>연차</option>
-      <option>오전 반차</option>
-      <option>오후 반차</option>
-      <option>월차</option>
-      <option>병가</option>
-      <option>기타</option>
-    </select>
 
-    <label>시작일</label>
-    <input type="date" id="startDate" />
+<section id="apply">
 
-    <label>종료일</label>
-    <input type="date" id="endDate" />
+<label>매장</label>
+<input value="평촌 소바공방" readonly />
 
-    <label>사용일수</label>
-    <input id="usedDays" type="number" step="0.5" placeholder="예: 1 또는 0.5" />
+<label>이름</label>
+<input id="name" />
 
-    <label>사유</label>
-    <textarea id="reason" placeholder="간단히 입력하세요"></textarea>
+<label>연락처</label>
+<input id="phone" />
 
-    <button id="submitBtn" class="primary" onclick="submitLeave()">신청하기</button>
-  </section>
+<label>시작일</label>
+<input type="date" id="startDate" />
 
-  <section id="register" class="card hidden">
-    <label>매장</label>
-    <div class="fixed-store">소바공방 평촌점</div>
+<label>종료일</label>
+<input type="date" id="endDate" />
 
-    <label>이름</label>
-    <input id="regName" placeholder="예: 홍길동" />
+<button onclick="submitLeave()">신청하기</button>
 
-    <label>연락처</label>
-    <input id="regPhone" placeholder="010-0000-0000" />
+</section>
 
-    <label>입사일</label>
-    <input type="date" id="joinDate" />
 
-    <label>기본연차</label>
-    <input id="baseLeave" type="number" step="0.5" value="15" />
+<section id="register" class="hidden">
 
-    <button id="regBtn" class="primary" onclick="registerEmployee()">직원등록</button>
-  </section>
+<label>이름</label>
+<input id="regName" />
 
-  <section id="history" class="card hidden">
-    <label>이름</label>
-    <input id="historyName" placeholder="예: 홍길동" />
+<label>연락처</label>
+<input id="regPhone" />
 
-    <label>연락처</label>
-    <input id="historyPhone" placeholder="010-0000-0000" />
+<label>입사일</label>
+<input type="date" id="joinDate" />
 
-    <button id="historyBtn" class="primary" onclick="loadMyHistory()">내역조회</button>
-    <div id="historyResult" class="result"></div>
-  </section>
+<button onclick="registerEmployee()">등록</button>
 
-  <section id="balance" class="card hidden">
-    <label>이름</label>
-    <input id="balanceName" placeholder="예: 홍길동" />
+</section>
 
-    <label>연락처</label>
-    <input id="balancePhone" placeholder="010-0000-0000" />
 
-    <button id="balanceBtn" class="primary" onclick="checkBalance()">잔여연차 확인</button>
-    <div id="balanceResult" class="result"></div>
-  </section>
+<section id="history" class="hidden">
 
-  <section class="footer-link">
-    <a href="admin.html">관리자 승인 페이지</a>
-  </section>
+<label>연락처</label>
+<input id="historyPhone" />
 
-</main>
+<button onclick="loadHistory()">조회</button>
 
-<script src="script.js"></script>
+<div id="historyResult"></div>
+
+</section>
+
+
+<section id="balance" class="hidden">
+
+<label>이름</label>
+<input id="balanceName" />
+
+<label>연락처</label>
+<input id="balancePhone" />
+
+<button onclick="checkBalance()">잔여연차 확인</button>
+
+<div id="balanceResult"></div>
+
+</section>
+
+
+<section class="footer-link">
+<button class="admin-go-btn" onclick="goAdmin()">관리자 승인 페이지</button>
+</section>
+
+</div>
+
+<script src="./script.js"></script>
+
+<script>
+if ("serviceWorker" in navigator) {
+navigator.serviceWorker.register("./service-worker.js");
+}
+</script>
+
 </body>
 </html>

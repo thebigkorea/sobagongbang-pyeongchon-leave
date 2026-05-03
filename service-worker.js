@@ -1,4 +1,4 @@
-const CACHE_NAME = "sobagongbang-pyeongchon-leave-v1";
+const CACHE_NAME = "sobagongbang-pyeongchon-leave-v3";
 
 self.addEventListener("install", event => {
   event.waitUntil(
